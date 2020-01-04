@@ -1,0 +1,9 @@
+export const LANDING = "/landing";
+export const SIGNUP = "/signup";
+export const SIGNIN = "/signin";
+export const HOME = "/";
+export const ABOUT = "/about";
+export const ACCOUNT = "/account";
+export const PROFILE = "/profile";
+export const ADMIN = "/admin";
+export const PASSWORD_FORGET = "/pw-forget";
