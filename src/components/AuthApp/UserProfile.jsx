@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import withAuthorization from "../Session/withAuthorization";
 
 class UserProfile extends Component {
   render() {
@@ -7,6 +8,6 @@ class UserProfile extends Component {
   }
 }
 
-//const condition = user => user != null;
+const condition = user => user != null;
 
-export default UserProfile;
+export default withAuthorization(condition)(UserProfile);

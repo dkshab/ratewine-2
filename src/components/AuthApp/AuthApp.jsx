@@ -1,16 +1,25 @@
-import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { Component, useContext } from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
 
 import AuthNavBar from "./AuthNavBar";
 import Reviews from "../Reviews/Reviews";
 import About from "../About";
 import SignInAndSignUp from "../SignInAndSignUp";
 
-import * as ROUTES from "../../constants/routes";
 import UserProfile from "./UserProfile";
+import withUser from "../Session/withUser";
+import * as ROUTES from "../../constants/routes";
 
 class AuthApp extends Component {
   state = { title: "Ratewine-2 Auth" };
+
+  componentDidMount() {
+    const { user } = this.props;
+    if (!user) {
+      this.props.history.push(ROUTES.SIGNIN);
+    }
+    //console.log(this.props.history);
+  }
   render() {
     const { title } = this.state;
 
@@ -42,4 +51,4 @@ class AuthApp extends Component {
   }
 }
 
-export default AuthApp;
+export default withRouter(withUser(AuthApp));

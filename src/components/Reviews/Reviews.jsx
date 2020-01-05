@@ -1,12 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-//import { UserContext } from "../../providers/UserProvider";
-//import withAuthorization from "../Session/withAuthorization";
+import withAuthorization from "../Session/withAuthorization";
 
 const Reviews = () => {
-  //const user = useContext(UserContext);
-  //console.log(user);
   return (
     <div>
       <Link to="/">
@@ -17,4 +14,6 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+const condition = user => user != null;
+
+export default withAuthorization(condition)(Reviews);

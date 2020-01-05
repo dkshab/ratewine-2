@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { auth } from "../firebase";
+import { withRouter } from "react-router-dom";
+
+import { auth, signInWithGoogle } from "../firebase";
+import * as ROUTES from "../constants/routes";
 
 class SignIn extends Component {
   state = { email: "", password: "", error: null };
@@ -18,6 +21,7 @@ class SignIn extends Component {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ email: "", password: "" });
+        this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
         this.setState({ error });
@@ -25,6 +29,7 @@ class SignIn extends Component {
   };
   render() {
     const { email, password, error } = this.state;
+    //console.log(this.props);
     return (
       <form onSubmit={this.handleSubmit}>
         <h2 className="title">Sign In</h2>
@@ -54,11 +59,13 @@ class SignIn extends Component {
           />
         </div>
         <input type="submit" className="button is-primary" value="Sign In" />
-        <button className="button is-info">Sign In With Google</button>
+        <button className="button is-info" onClick={signInWithGoogle}>
+          Sign In With Google
+        </button>
         {error && <p>{error.message}</p>}
       </form>
     );
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);

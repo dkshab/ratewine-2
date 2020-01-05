@@ -1,8 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { UserContext } from "../../providers/UserProvider";
-import { withRouter } from "react-router-dom";
-
-import * as ROUTES from "../../constants/routes";
 
 const getDisplayName = WrappedComponent => {
   return WrappedComponent.displayName || WrappedComponent.name || "name";
@@ -10,11 +7,6 @@ const getDisplayName = WrappedComponent => {
 
 const withUser = Component => {
   const WrappedComponent = props => {
-    const user = useContext(UserContext);
-    console.log(user);
-    if (!user) {
-      props.history.push(ROUTES.SIGNIN);
-    }
     return (
       <UserContext.Consumer>
         {user => <Component user={user} {...props} />}
@@ -26,7 +18,7 @@ const withUser = Component => {
     WrappedComponent
   )})`;
 
-  return withRouter(WrappedComponent);
+  return WrappedComponent;
 };
 
 export default withUser;

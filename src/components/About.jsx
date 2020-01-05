@@ -1,4 +1,5 @@
 import React from "react";
+//import withAuthorization from "./Session/withAuthorization";
 
 const About = () => (
   <div>
@@ -8,5 +9,7 @@ const About = () => (
     <p>Add something relevant here.</p>
   </div>
 );
+
+//const condition = user => user != null;
 
 export default About;

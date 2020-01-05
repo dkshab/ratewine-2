@@ -13,6 +13,12 @@ class UserProvider extends Component {
       const user = await createUserProfileDocument(userAuth);
 
       console.log(user);
+      if (user) {
+        localStorage.setItem("authUser", JSON.stringify(user));
+      }
+      if (!user) {
+        localStorage.removeItem("authUser");
+      }
       this.setState({ user });
     });
   };
