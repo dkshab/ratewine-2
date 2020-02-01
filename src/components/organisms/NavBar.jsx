@@ -27,11 +27,8 @@ const NavBarAuth = props => (
         <li>
           <Link to={ROUTES.ACCOUNT}>Account</Link>{" "}
         </li>
-        <li className="top-nav__featured">
-          <Link to={ROUTES.SIGNIN}>Sign In</Link>{" "}
-        </li>
         <li>
-          <button onClick={signOut} className="button">
+          <button onClick={signOut} className="button button-signout">
             Sign Out
           </button>
         </li>
@@ -55,9 +52,6 @@ const NavBarNonAuth = props => (
         </li>
         <li className="top-nav__featured">
           <Link to={ROUTES.SIGNIN}>Sign In</Link>{" "}
-        </li>
-        <li>
-          <Link to={ROUTES.SIGNIN}>Sign Out</Link>{" "}
         </li>
       </ul>
     </div>

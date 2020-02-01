@@ -48,9 +48,9 @@ class AddReview extends Component {
         </Link>
         <hr />
         <form onSubmit={this.handleSubmit}>
-          <h3 className="title">New Review</h3>
+          <h3>New Review</h3>
           <input
-            className="input"
+            className="text-input"
             type="text"
             name="title"
             placeholder="Title"
@@ -59,7 +59,7 @@ class AddReview extends Component {
           />
           <textarea
             className="textarea"
-            placeholder="Body"
+            placeholder="Remember, be honest!"
             name="content"
             value={content}
             onChange={this.handleChange}

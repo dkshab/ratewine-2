@@ -51,33 +51,31 @@ class UserProfile extends Component {
     const { displayName } = this.state;
 
     return (
-      <section>
-        <h1 className="title">Update Details</h1>
+      <div className="update-user">
+        <h1>Update Details</h1>
         <hr />
         <form onSubmit={this.handleSubmit}>
-          <div className="field">
-            <label className="label">New Display Name</label>
+          <div>
             <input
-              className="input"
+              className="text-input"
               type="text"
               value={displayName}
               name="displayName"
-              placeholder=" Display Name"
+              placeholder="Enter New Display Name"
               onChange={this.handleChange}
             />
           </div>
-          <div className="field">
-            <label className="label">Picture Upload</label>
+          <div>
+            <input
+              className="input"
+              type="file"
+              ref={ref => (this.imageInput = ref)}
+              placeholder="Profile Picture"
+            />
           </div>
-          <input
-            className="input"
-            type="file"
-            ref={ref => (this.imageInput = ref)}
-            placeholder="Profile Picture"
-          />
-          <input type="submit" className="button is-primary" />
+          <input type="submit" className="button" value="Submit" />
         </form>
-      </section>
+      </div>
     );
   }
 }

@@ -31,7 +31,7 @@ class SignIn extends Component {
     //console.log(this.props.history);
     return (
       <div>
-        <div className="grid">
+        <div>
           <form onSubmit={this.handleSubmit}>
             <div>
               <label>Email</label>

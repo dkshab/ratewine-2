@@ -3,15 +3,10 @@ import moment from "moment";
 
 const Comment = ({ content, user, createdAt }) => {
   return (
-    <article className="message">
-      <div className="message-header">
-        <p>{user.displayName}</p>
-        <button className="delete" aria-label="delete"></button>
-      </div>
-      <div className="message-body">
-        {content}
-        <p>{moment(createdAt).calendar()}</p>
-      </div>
+    <article className="Comment">
+      <span className="Comment--author">{user.displayName}</span>
+      <span className="Comment--content">{content}</span>
+      <span className="Comment--timestamp">{moment(createdAt).calendar()}</span>
     </article>
   );
 };

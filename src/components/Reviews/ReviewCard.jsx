@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-const Review = ({ id, title, createdAt }) => {
+const ReviewCard = ({ id, title, createdAt }) => {
   return (
     <div className="review">
       <div className="review-container">
@@ -19,7 +19,7 @@ const Review = ({ id, title, createdAt }) => {
   );
 };
 
-Review.defaultProps = {
+ReviewCard.defaultProps = {
   title: "An Incredibly Hot Take",
   content:
     "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus est aut dolorem, dolor voluptatem assumenda possimus officia blanditiis iusto porro eaque non ab autem nihil! Alias repudiandae itaque quo provident.",
@@ -34,4 +34,4 @@ Review.defaultProps = {
   comments: 0
 };
 
-export default Review;
+export default ReviewCard;

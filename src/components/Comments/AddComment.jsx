@@ -19,21 +19,18 @@ class AddComment extends Component {
   render() {
     const { content } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          className="input"
-          type="text"
-          name="content"
-          placeholder="Comment"
-          value={content}
-          onChange={this.handleChange}
-        />
-        <input
-          className="button is-link"
-          type="submit"
-          value="Create Comment"
-        />
-      </form>
+      <div className="AddComment">
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="content"
+            placeholder="Comment"
+            value={content}
+            onChange={this.handleChange}
+          />
+          <input className="button" type="submit" value="Create Comment" />
+        </form>
+      </div>
     );
   }
 }

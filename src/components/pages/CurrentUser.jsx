@@ -23,12 +23,10 @@ const CurrentUser = ({ displayName, photoURL, email, createdAt, children }) => {
       <div className="user-profile__avatar">
         <img src={photoURL} alt={displayName} />
       </div>
-      <p className="user-profile__bio">
-        Is a person{" "}
-        <Link to={ROUTES.PROFILE}>
-          <p>Update details</p>
-        </Link>
-      </p>
+      <p className=" user-profile__bio">Is a person </p>
+      <Link to={ROUTES.PROFILE} className="button">
+        <p>Update</p>
+      </Link>
     </div>
   );
 };

@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 import { firestore } from "../../firebase";
 import { collectIdsAndDocs } from "../../utilities";
-import Review from "./Review";
 import { withRouter } from "react-router-dom";
 import withUser from "../Session/withUser";
 import Comments from "../Comments/Comments";
+import ReviewContent from "./ReviewContent";
 
 class ReviewPage extends Component {
   state = { review: null, comments: [] };
@@ -54,10 +54,10 @@ class ReviewPage extends Component {
     const { review, comments } = this.state;
     //console.log(this.props);
     return (
-      <section>
-        {review && <Review {...review} />}
+      <div>
+        {review && <ReviewContent {...review} />}
         <Comments comments={comments} onCreate={this.createComment} />
-      </section>
+      </div>
     );
   }
 }

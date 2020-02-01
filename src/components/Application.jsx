@@ -23,7 +23,6 @@ class Application extends Component {
       <div className="container">
         <NavBar title={title} />
         <div className="content">
-          <br />
           <Switch>
             <Route exact path={ROUTES.HOME} component={Home} />
             <Route exact path={ROUTES.REVIEWS} component={Reviews} />

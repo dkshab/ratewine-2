@@ -8,6 +8,25 @@ $light-gray: #f1f3f5;
 $extra-light-gray: #f8f9fa;
 $white: #fff;
 $input-color: #009639;
+$review: #7dbbc3;
+$info-color: #daedbd;
+$comment-highlight-color: #de6b48;
+$danger-color: #de6b48;
+
+@mixin button($color) {
+  font-family: inherit;
+  color: $white;
+  background-color: $color;
+  border: 2px solid $color;
+
+  &:hover {
+    background-color: lighten($color, 20);
+    color: $white;
+  }
+  &:active {
+    background-color: lighten($color, 20);
+  }
+}
 
 html {
   box-sizing: border-box;
@@ -51,6 +70,12 @@ a:hover {
 a:active {
 }
 
+label {
+  color: inherit;
+  display: block;
+  margin: 0 0 0.5rem;
+}
+
 .container {
   display: grid;
   height: 100vh;
@@ -76,82 +101,134 @@ a:active {
   grid-area: footer;
 }
 
+// Buttons
+
+button,
+input[type="submit"],
 .button {
   display: inline-block;
+  color: $text-color;
+  font-size: 1em;
   padding: 0.4em 1em;
-  color: $brand-green;
-  border: 2px solid $brand-green;
   border-radius: 0.2em;
   text-decoration: none;
-  font-size: 1rem;
-}
-.button:hover {
-  background-color: $dark-green;
-  color: $white;
+  @include button($brand-green);
+  &.button-star {
+    @include button(blue);
+  }
+  &.button-delete {
+    @include button($danger-color);
+  }
+  &.button-signout {
+    color: $white;
+    background-color: $medium-green;
+    padding: 0.45em 1.05em;
+    border: 0;
+  }
+  &.button--cta {
+    background-color: $medium-green;
+    padding: 0.6em 1em;
+    color: $white;
+    border: none;
+  }
+  &.button-sign {
+    display: inline-block;
+    background-color: $input-color;
+    border: 0;
+    color: $white;
+    font-size: 1.125em;
+    font-weight: 400;
+    margin-top: auto;
+    padding: 0.6em 1em;
+    text-align: center;
+    transition: all 250ms ease-in;
+  }
 }
 
 // Navbar Styling
 
 .nav-container {
-  background-color: #20c997;
+  background-color: $white;
+  .nav-container__inner {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0.625em 0;
+    .home-link {
+      color: #212529;
+      font-size: 1.6rem;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .top-nav {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      a {
+        display: block;
+        padding: 0.3em 1.25em;
+        color: #fff;
+        background-color: #076448;
+        text-decoration: none;
+        border-radius: 3px;
+      }
+      a:hover {
+        background-color: #099268;
+      }
+      .top-nav__featured a {
+        background-color: $medium-green;
+        color: $white;
+      }
+      .top-nav__featured a:hover {
+        color: #20c997;
+        background-color: $white;
+      }
+    }
+    .top-nav > li + li {
+      margin-left: 0.625em;
+    }
+  }
 }
 
-.nav-container__inner {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1080px;
+// Home page Styling
+
+.hero {
+  background: url("../src/img/wine4.jpg");
+  background-size: cover;
+  margin-bottom: 2.5em;
+  h2 {
+    font-size: 1.95rem;
+  }
+  .hero__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 50px 0 200px;
+    text-align: right;
+  }
+}
+
+.home-container {
   margin: 0 auto;
-  padding: 0.625em 0;
-}
-
-.home-link {
-  color: #212529;
-  font-size: 1.6rem;
-  font-family: Georgia, serif;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.top-nav {
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-}
-
-.top-nav > li + li {
-  margin-left: 0.625em;
-}
-
-.top-nav a {
-  display: block;
-  padding: 0.3em 1.25em;
-  color: #fff;
-  background-color: #076448;
-  text-decoration: none;
-  border-radius: 3px;
-}
-
-.top-nav a:hover {
-  background-color: #099268;
-}
-
-.top-nav__featured > a {
-  color: #076448;
-  background-color: #fff;
-}
-
-.top-nav__featured > a:hover {
-  color: #20c997;
-  background-color: #fff;
+  max-width: 1080px;
+  .tile-row {
+    display: flex;
+    .tile {
+      background-color: #fff;
+      border-radius: 0.3em;
+      .button {
+        background-color: $white;
+      }
+    }
+    .tile-row > * {
+      flex: 1;
+    }
+  }
 }
 
 // Form styling fo Signin & Signup
 .signin-signup {
-}
-label {
-  color: inherit;
-  display: block;
-  margin: 0 0 0.5rem;
 }
 
 ::-webkit-input-placeholder {
@@ -174,37 +251,23 @@ label {
   border-color: #999;
 }
 
-.button-sign {
-  background-color: $input-color;
-  border: 0;
-  color: $white;
-  display: inline-block;
-  font-family: inherit;
-  font-size: 1.125rem;
-  font-weight: 400;
-  height: 58px;
-  margin-top: auto;
-  padding: 1rem 1.25rem;
-  text-align: center;
-  transition: all 250ms ease-in;
-}
-
 // About Page Styling
 
 .about-page {
   font-family: inherit;
-  text-align: center;
-}
-
-.about-page-hero {
-  background: url("../src/img/wine4.jpg");
-  background-size: cover;
-  margin-top: 2.5rem;
-}
-.about-page-hero__inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 50px 0 200px;
+  .about-page-content {
+    text-align: center;
+  }
+  .about-page-hero {
+    background: url("../src/img/wine1.jpg");
+    background-size: cover;
+    margin-top: 2.5rem;
+    .about-page-hero__inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 50px 0 200px;
+    }
+  }
 }
 
 // Footer Styling
@@ -215,23 +278,19 @@ label {
   display: flex;
   flex-wrap: wrap;
   padding: 1em;
-}
-
-.site-footer-section {
-  align-items: center;
-  display: flex;
-}
-
-.site-footer-section a {
-  text-decoration: none;
-}
-
-.site-footer-item {
-  padding: 0.875rem 1.5rem;
-}
-
-.site-footer-social-media {
-  padding: 0.2rem 0.5rem;
+  .site-footer-section {
+    align-items: center;
+    display: flex;
+    a {
+      text-decoration: none;
+    }
+    .site-footer-item {
+      padding: 0.875rem 1.5rem;
+    }
+    .site-footer-social-media {
+      padding: 0.2rem 0.5rem;
+    }
+  }
 }
 
 // Account Page styling
@@ -253,6 +312,51 @@ label {
     "avatar"
     "name"
     "bio";
+
+  p {
+    margin: 0;
+  }
+  a {
+    text-align: center;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  .user-profile__username {
+    grid-area: name;
+    color: #848383;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    p > span {
+      color: #ff0168;
+      font-weight: bold;
+    }
+  }
+
+  .user-profile__avatar {
+    display: flex;
+    grid-area: avatar;
+    justify-content: center;
+
+    img {
+      border-radius: 100%;
+    }
+  }
+
+  .user-profile__bio {
+    border-top: 1px solid #ff0168;
+    padding-top: 2rem;
+    grid-area: bio;
+  }
+
+  .button {
+    background-color: $white;
+    margin: 0;
+  }
 }
 
 @media (min-width: 700px) {
@@ -267,39 +371,139 @@ label {
   }
 }
 
-.user-profile p {
-  margin-bottom: 0;
+input[type="file"] {
+  margin: 1em 0;
+  padding: 1em 0;
 }
 
-.user-profile img {
-  max-width: 100%;
+// Reviews Page
+
+// Review
+.review {
+  margin: 40px auto;
+  max-width: 500px;
+  .review-container {
+    padding: 80px 40px;
+    img {
+      object-fit: contain;
+    }
+    .review-container-content {
+      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      a {
+        color: coral;
+        font-size: 1.25em;
+      }
+      .title-link {
+        padding-left: 2rem;
+        h2 {
+          font-size: 1.75em;
+          line-height: 1.25;
+          margin-top: 0;
+          font-weight: 400;
+        }
+      }
+      .date {
+        margin-block-start: 0;
+        text-transform: uppercase;
+        writing-mode: sideways-lr;
+      }
+    }
+  }
 }
 
-.user-profile__username {
-  grid-area: name;
-  color: #848383;
+// Add Review Page
+textarea {
+  width: 50%;
+  height: 30vh;
+  display: block;
+  padding: 1em;
+  border: 2px solid #bbb;
+  font-family: inherit;
+  font-weight: 300;
+}
+
+// Review Content
+
+.ReviewContent {
+  border: 1px solid $review;
+  margin-bottom: 1em;
+}
+
+.ReviewContent__inner {
+  padding: 1em;
+  h3 {
+    margin-top: 0;
+  }
+}
+
+.ReviewContent--meta {
+  padding: 0.5em;
+  background-color: $info-color;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    display: inline-block;
+    margin: 1em;
+  }
+  button {
+    display: inline-block;
+    width: auto;
+    &:not(:last-child) {
+      margin-right: 5px;
+      margin-bottom: 0;
+    }
+  }
 }
 
-.user-profile__username p > span {
-  color: #ff0168;
+// Comment
+
+.Comment {
+  margin: 1em 0;
+}
+
+.Comment--author {
+  color: $comment-highlight-color;
   font-weight: bold;
+  &:after {
+    content: ": ";
+  }
 }
 
-.user-profile__avatar {
-  display: flex;
-  grid-area: avatar;
-  justify-content: center;
+.Comment--timestamp {
+  color: darken($info-color, 40);
+  &:before {
+    content: " ";
+  }
 }
 
-.user-profile__avatar img {
-  border-radius: 100%;
+.button-star {
+  background-color: yellow;
 }
 
-.user-profile__bio {
-  border-top: 1px solid #ff0168;
-  padding-top: 2rem;
-  grid-area: bio;
+.button-delete {
+  background-color: $danger-color;
+  border: 0;
+}
+
+// AddComment
+
+.AddComment {
+  font-family: inherit;
+  input[type="text"] {
+    width: 50%;
+    border: none;
+    border-bottom: 1px solid $input-color;
+    font-size: 1.5em;
+    padding: 0.5em;
+  }
+  input[type="submit"] {
+    display: block;
+    width: 50%;
+    font-size: 1.1em;
+    padding: 0.5em;
+  }
 }

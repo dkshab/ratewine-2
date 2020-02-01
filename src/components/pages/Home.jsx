@@ -1,15 +1,15 @@
 import React from "react";
 //import wine1 from "../../img/wine1.jpg";
 
-import "./home.css";
+//import "./home.css";
 
 const Home = () => (
   <div>
     <div className="hero">
       <div className="hero__inner">
         <h2>Team collaboration done right</h2>
-        <a href="/sign-up" className="button button--cta">
-          Get started
+        <a href="/reviews" className="button button--cta">
+          Reviews
         </a>
       </div>
     </div>
