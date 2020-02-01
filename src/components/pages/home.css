@@ -1,0 +1,35 @@
+.hero {
+  background: url("../../img/wine1.jpg");
+  background-size: cover;
+  margin-bottom: 2.5em; }
+
+.hero__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 50px 0 200px;
+  text-align: right; }
+
+.hero h2 {
+  font-size: 1.95rem; }
+
+.button--cta {
+  padding: 0.6em 1em;
+  background-color: #099268;
+  color: #fff;
+  border: none; }
+
+.home-container {
+  margin: 0 auto;
+  max-width: 1080px; }
+
+.tile-row {
+  display: flex; }
+
+.tile-row > * {
+  flex: 1; }
+
+.tile {
+  background-color: #fff;
+  border-radius: 0.3em; }
+
+/*# sourceMappingURL=home.css.map */

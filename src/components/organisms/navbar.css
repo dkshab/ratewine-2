@@ -1,0 +1,45 @@
+.nav-container {
+  background-color: #20c997; }
+
+.nav-container__inner {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.625em 0; }
+
+.home-link {
+  color: #212529;
+  font-size: 1.6rem;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  text-decoration: none; }
+
+.top-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0; }
+
+.top-nav > li + li {
+  margin-left: 0.625em; }
+
+.top-nav a {
+  display: block;
+  padding: 0.3em 1.25em;
+  color: #fff;
+  background-color: #076448;
+  text-decoration: none;
+  border-radius: 3px; }
+
+.top-nav a:hover {
+  background-color: #099268; }
+
+.top-nav__featured > a {
+  color: #076448;
+  background-color: #fff; }
+
+.top-nav__featured > a:hover {
+  color: #20c997;
+  background-color: #fff; }
+
+/*# sourceMappingURL=navbar.css.map */

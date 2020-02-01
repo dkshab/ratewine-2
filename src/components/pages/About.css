@@ -1,0 +1,10 @@
+body,
+html {
+  height: 100%;
+}
+
+.about-hero {
+  background-image: url("../../img/wine1.jpg");
+  position: relative;
+  height: 50%;
+}

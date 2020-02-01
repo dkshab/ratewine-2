@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { ReviewsContext } from "../../providers/ReviewsProvider";
+import Review from "./Review";
 import withAuthorization from "../Session/withAuthorization";
+import * as ROUTES from "../../constants/routes";
 
 const Reviews = () => {
+  const reviews = useContext(ReviewsContext);
+  //console.log(reviews);
   return (
-    <div>
-      <Link to="/">
-        <h1 className="title">Application</h1>
+    <section>
+      <Link to={ROUTES.ADDREVIEW} className="button is-link">
+        <p>Add Review!</p>
       </Link>
-      <h3 className="subtitle">All Reviews</h3>
-    </div>
+      <hr />
+      <br />
+      {reviews.map(review => (
+        <Review {...review} key={review.id} id={review.id} />
+      ))}
+    </section>
   );
 };
-
 const condition = user => user != null;
 
 export default withAuthorization(condition)(Reviews);

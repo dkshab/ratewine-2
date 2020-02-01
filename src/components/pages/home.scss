@@ -1,0 +1,49 @@
+$primary-color: #f5f5f5;
+$brand-green: #076448;
+$dark-green: #099268;
+$medium-green: #20c997;
+$text-color: #212529;
+$gray: #868e96;
+$light-gray: #f1f3f5;
+$extra-light-gray: #f8f9fa;
+$white: #fff;
+
+.hero {
+  background: url("../../img/wine1.jpg");
+  background-size: cover;
+  margin-bottom: 2.5em;
+}
+
+.hero__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 50px 0 200px;
+  text-align: right;
+}
+.hero h2 {
+  font-size: 1.95rem;
+}
+
+.button--cta {
+  padding: 0.6em 1em;
+  background-color: $dark-green;
+  color: $white;
+  border: none;
+}
+
+.home-container {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+.tile-row {
+  display: flex;
+}
+.tile-row > * {
+  flex: 1;
+}
+
+.tile {
+  background-color: $white;
+  border-radius: 0.3em;
+}

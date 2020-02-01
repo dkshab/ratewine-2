@@ -1,0 +1,56 @@
+$brand-green: #076448;
+$dark-green: #099268;
+$medium-green: #20c997;
+$text-color: #212529;
+$gray: #868e96;
+$light-gray: #f1f3f5;
+$extra-light-gray: #f8f9fa;
+$white: #fff;
+$max-width: 1080px;
+
+.nav-container {
+  background-color: $medium-green;
+}
+.nav-container__inner {
+  display: flex;
+  justify-content: space-between;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0.625em 0;
+}
+
+.home-link {
+  color: $text-color;
+  font-size: 1.6rem;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.top-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+}
+.top-nav > li + li {
+  margin-left: 0.625em;
+}
+.top-nav a {
+  display: block;
+  padding: 0.3em 1.25em;
+  color: $white;
+  background-color: $brand-green;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.top-nav a:hover {
+  background-color: $dark-green;
+}
+.top-nav__featured > a {
+  color: $brand-green;
+  background-color: $white;
+}
+.top-nav__featured > a:hover {
+  color: $medium-green;
+  background-color: $white;
+}

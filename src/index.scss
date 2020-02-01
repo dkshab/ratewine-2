@@ -1,78 +1,111 @@
+$primary-color: #f5f5f5;
+$brand-green: #076448;
+$dark-green: #099268;
+$medium-green: #20c997;
+$text-color: #212529;
+$gray: #868e96;
+$light-gray: #f1f3f5;
+$extra-light-gray: #f8f9fa;
+$white: #fff;
+$input-color: #009639;
+
 html {
   box-sizing: border-box;
-  color: #212529; }
-
+  color: $text-color;
+}
 *,
 *::before,
 *::after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
-  background-color: #f8f9fa; }
+  background-color: $extra-light-gray;
+}
 
 hr {
   border: 0;
   height: 1px;
-  background: #868e96; }
+  background: $gray;
+}
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: Georgia, serif; }
+  font-family: Georgia, serif;
+}
 
 a {
-  color: #20c997; }
-
+  color: $medium-green;
+}
 a:visited {
-  color: #076448; }
-
+  color: $brand-green;
+}
 a:hover {
-  color: #076448; }
+  color: $brand-green;
+}
+a:active {
+}
 
 .container {
   display: grid;
   height: 100vh;
-  grid-template-areas: "nav" "main" "footer";
+  grid-template-areas:
+    "nav"
+    "main"
+    "footer";
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
-  grid-gap: 1em; }
+  grid-gap: 1em;
+}
 
 .nav-container {
-  grid-area: nav; }
+  grid-area: nav;
+}
 
 .content {
-  grid-area: main; }
+  grid-area: main;
+}
 
 .site-footer {
-  grid-area: footer; }
+  //background: $gray;
+  grid-area: footer;
+}
 
 .button {
   display: inline-block;
   padding: 0.4em 1em;
-  color: #076448;
-  border: 2px solid #076448;
+  color: $brand-green;
+  border: 2px solid $brand-green;
   border-radius: 0.2em;
   text-decoration: none;
-  font-size: 1rem; }
-
+  font-size: 1rem;
+}
 .button:hover {
-  background-color: #099268;
-  color: #fff; }
+  background-color: $dark-green;
+  color: $white;
+}
 
+// Form styling fo Signin & Signup
+.signin-signup {
+}
 label {
   color: inherit;
   display: block;
-  margin: 0 0 0.5rem; }
+  margin: 0 0 0.5rem;
+}
 
 ::-webkit-input-placeholder {
-  color: #009639; }
+  color: $input-color;
+}
 
 ::-moz-placeholder {
-  color: #009639; }
+  color: $input-color;
+}
 
 .text-input {
   border: 2px solid #bbb;
@@ -80,15 +113,16 @@ label {
   font-family: inherit;
   font-weight: 300;
   padding: 1rem;
-  width: 50%; }
-
+  width: 50%;
+}
 .text-input:focus {
-  border-color: #999; }
+  border-color: #999;
+}
 
 .button-sign {
-  background-color: #009639;
+  background-color: $input-color;
   border: 0;
-  color: #fff;
+  color: $white;
   display: inline-block;
   font-family: inherit;
   font-size: 1.125rem;
@@ -97,44 +131,56 @@ label {
   margin-top: auto;
   padding: 1rem 1.25rem;
   text-align: center;
-  transition: all 250ms ease-in; }
+  transition: all 250ms ease-in;
+}
+
+// About Page Styling
 
 .about-page {
   font-family: inherit;
-  text-align: center; }
+  text-align: center;
+}
 
 .about-page-hero {
   background: url("../src/img/wine4.jpg");
   background-size: cover;
-  margin-top: 2.5rem; }
-
+  margin-top: 2.5rem;
+}
 .about-page-hero__inner {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 50px 0 200px; }
+  padding: 50px 0 200px;
+}
+
+// Footer Styling
 
 .site-footer__inner {
   border-radius: 5px;
   box-shadow: 0 2px 50px rgba(0, 0, 0, 0.19);
   display: flex;
   flex-wrap: wrap;
-  padding: 1em; }
+  padding: 1em;
+}
 
 .site-footer-section {
   align-items: center;
-  display: flex; }
+  display: flex;
+}
 
 .site-footer-section a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .site-footer-item {
-  padding: 0.875rem 1.5rem; }
+  padding: 0.875rem 1.5rem;
+}
 
 .site-footer-social-media {
-  padding: 0.2rem 0.5rem; }
+  padding: 0.2rem 0.5rem;
+}
 
 .user-profile {
-  background-color: #fff;
+  background-color: $white;
   border-radius: 5px;
   box-shadow: 3px 2px 12px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
@@ -142,45 +188,61 @@ label {
   padding: 2rem;
   transition: all 1s;
   width: 100%;
+
   display: grid;
   grid-column-gap: 2rem;
   grid-row-gap: 2em;
-  grid-template-areas: "avatar" "name" "bio"; }
+  grid-template-areas:
+    "avatar"
+    "name"
+    "bio";
+}
 
 @media (min-width: 700px) {
   .user-profile {
-    grid-template-areas: "avatar name" "bio bio"; }
+    grid-template-areas:
+      "avatar name"
+      "bio bio";
+  }
 
   p {
-    margin: 0; } }
+    margin: 0;
+  }
+}
+
 .user-profile p {
-  margin-bottom: 0; }
+  margin-bottom: 0;
+}
 
 .user-profile img {
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 .user-profile__username {
   grid-area: name;
   color: #848383;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+}
 
 .user-profile__username p > span {
   color: #ff0168;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .user-profile__avatar {
   display: flex;
   grid-area: avatar;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .user-profile__avatar img {
-  border-radius: 100%; }
+  border-radius: 100%;
+}
 
 .user-profile__bio {
   border-top: 1px solid #ff0168;
   padding-top: 2rem;
-  grid-area: bio; }
-
-/*# sourceMappingURL=index.css.map */
+  grid-area: bio;
+}
