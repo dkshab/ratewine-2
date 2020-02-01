@@ -5,7 +5,7 @@ import { signOut } from "../../firebase";
 import { UserContext } from "../../providers/UserProvider";
 import * as ROUTES from "../../constants/routes";
 
-import "./navbar.css";
+//import "./navbar.css";
 
 const NavBar = props => {
   const user = useContext(UserContext);
