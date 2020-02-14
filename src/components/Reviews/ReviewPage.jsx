@@ -54,8 +54,9 @@ class ReviewPage extends Component {
     const { review, comments } = this.state;
     //console.log(this.props);
     return (
-      <div>
+      <div className="ReviewPage">
         {review && <ReviewContent {...review} />}
+
         <Comments comments={comments} onCreate={this.createComment} />
       </div>
     );

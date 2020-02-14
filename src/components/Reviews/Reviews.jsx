@@ -10,14 +10,16 @@ const Reviews = () => {
   const reviews = useContext(ReviewsContext);
   //console.log(reviews);
   return (
-    <div className="reviews-page">
+    <div className="Reviews">
       <Link to={ROUTES.ADDREVIEW} className="button is-link">
         <p>Add Review!</p>
       </Link>
       <hr />
-      {reviews.map(review => (
-        <ReviewCard {...review} key={review.id} id={review.id} />
-      ))}
+      <div className="Reviews--Meta">
+        {reviews.map(review => (
+          <ReviewCard {...review} key={review.id} id={review.id} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -27,6 +27,7 @@ class AddComment extends Component {
             placeholder="Comment"
             value={content}
             onChange={this.handleChange}
+            required
           />
           <input className="button" type="submit" value="Create Comment" />
         </form>

@@ -4,12 +4,13 @@ import Comment from "./Comment";
 
 const Comments = ({ comments, onCreate }) => {
   return (
-    <section>
+    <div className="Comments">
       <AddComment onCreate={onCreate} />
+      <h3>Comments</h3>
       {comments.map(comment => (
         <Comment {...comment} key={comment.id} />
       ))}
-    </section>
+    </div>
   );
 };
 
